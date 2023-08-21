@@ -8,7 +8,8 @@ function addCardName(name) {
 function calculateCost(cost) {
   const totalPriceText = document.getElementById("total-price");
   const totalPrice = cost + parseFloat(totalPriceText.innerText);
-
+  const totalText = document.getElementById("total");
+  totalText.innerText = totalPrice.toFixed(2);
   if (totalPrice > 0) {
     const purchaseBtn = document.getElementById("purchase");
     purchaseBtn.removeAttribute("disabled");
@@ -23,9 +24,9 @@ function calculateCost(cost) {
         const discountText = document.getElementById("discount");
         const totalText = document.getElementById("total");
         const discountAmount = parseFloat(tCost) * 0.2;
-        discountText.innerText = discountAmount;
+        discountText.innerText = discountAmount.toFixed(2);
         const finalPrice = parseFloat(tCost) - discountAmount;
-        totalText.innerText = finalPrice;
+        totalText.innerText = finalPrice.toFixed(2);
         coupon.value = "";
       }
     });
